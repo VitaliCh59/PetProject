@@ -1,0 +1,15 @@
+.header {
+  background-color: palegoldenrod;
+  width: 100%;
+  height: 100px;
+}
+
+.header__name {
+  display: inline-block;
+  margin: 5px;
+}
+
+#logo {
+  padding: 5px;
+  margin: 10px;
+}
