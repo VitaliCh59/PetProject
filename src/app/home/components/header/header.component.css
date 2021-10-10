@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  width: 100%;
+}
+
+.header__name {
+  align-self: center;
+  margin: 5px;
+  flex-basis: 88%;
+}
+
+#logo {
+
+  padding: 5px;
+  margin: 10px;
+}
+
+.header__login {
+  align-self: end;
+}
