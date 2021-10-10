@@ -1,0 +1,27 @@
+<form class="card" [formGroup]="form" (ngSubmit)="submit()" >
+  <h2>Авторизоваться в сервисе бронирования</h2>
+
+    <div class="container">
+
+        <mat-form-field appearance="fill">
+          <mat-label>Введите Ваш email</mat-label>
+          <input matInput formControlName="email" placeholder="pat@example.com" required>
+          <mat-error *ngIf="form.get('email').touched">{{getErrorEmail()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Введите Ваш пароль</mat-label>
+          <input matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+          <mat-error *ngIf="form.get('password').touched">{{getErrorPassword()}}</mat-error>
+
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+    </div>
+
+  <button type="submit"
+          class="btn"
+          [disabled]="form.invalid"> Войти
+  </button>
+</form>

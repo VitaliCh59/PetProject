@@ -1,0 +1,13 @@
+.dashboard {
+  text-align: center;
+  font-family: fantasy;
+  margin: 5px;
+  }
+
+.menu {
+  padding: 10px;
+}
+
+.active a {
+  color: red;
+}

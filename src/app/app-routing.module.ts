@@ -4,12 +4,14 @@ import {HomeComponent} from "./home/home.component";
 import {NewsPageComponent} from "./home/news-page/news-page.component";
 import {NewReservationComponent} from "./home/new-reservation/new-reservation.component";
 import {MyReservationsComponent} from "./home/my-reservations/my-reservations.component";
+import {LoginPageComponent} from "./login-page/login-page.component";
 
 const routes: Routes = [
   {
     path: '', component: HomeComponent, children: [
       {path: '', redirectTo:'/news', pathMatch: 'full'},
       {path: 'news', component: NewsPageComponent},
+      {path: 'login', component: LoginPageComponent},
       {path: 'new-reservation',component: NewReservationComponent},
       {path: 'my-reservations',component: MyReservationsComponent},
     ]
