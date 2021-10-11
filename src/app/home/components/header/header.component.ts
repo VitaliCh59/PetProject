@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'header',
@@ -8,7 +9,10 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    public auth: AuthService
+  ) {
 
   }
 
@@ -17,6 +21,7 @@ export class HeaderComponent implements OnInit {
 
   logout(event:Event) {
     event.preventDefault();
+    this.auth.logout();
     this.router.navigate(['/news'])
   }
 }
