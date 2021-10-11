@@ -14,8 +14,8 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
     CommonModule,
     RouterModule.forChild([
       {
-        path: '', component: AdminPageComponent, children: [
-          {path: '', redirectTo: '/login', pathMatch: 'full'},
+        path: 'admin', component: AdminPageComponent, children: [
+          {path: 'admin', redirectTo: '/login', pathMatch: 'full'},
           // {path: 'login', component: LoginPageComponent},
           {path: 'manage-reservation', component: ManageReservationComponent},
           {path: 'reservation-list', component: ReservationListComponent}
