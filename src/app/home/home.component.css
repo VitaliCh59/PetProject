@@ -17,7 +17,7 @@
 }
 
 .dashboard {
-  background-color: aquamarine;
+  background-color: rgb(169, 142, 199);
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 2;
