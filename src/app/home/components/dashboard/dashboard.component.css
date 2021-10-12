@@ -8,6 +8,15 @@
   padding: 10px;
 }
 
+a {
+  font-family: 'Courier', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+}
+
 .active a {
-  color: red;
+  color: rgb(4, 66, 9);
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  transition: color .3s ease-out;
 }
