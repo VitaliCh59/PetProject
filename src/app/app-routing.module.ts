@@ -5,6 +5,7 @@ import {NewsPageComponent} from "./home/news-page/news-page.component";
 import {NewReservationComponent} from "./home/new-reservation/new-reservation.component";
 import {MyReservationsComponent} from "./home/my-reservations/my-reservations.component";
 import {LoginPageComponent} from "./login-page/login-page.component";
+import {AuthGuard} from "./shared/services/auth.guard";
 
 const routes: Routes = [
   {
@@ -12,8 +13,8 @@ const routes: Routes = [
       {path: '', redirectTo:'/news', pathMatch: 'full'},
       {path: 'news', component: NewsPageComponent},
       {path: 'login', component: LoginPageComponent},
-      {path: 'new-reservation',component: NewReservationComponent},
-      {path: 'my-reservations',component: MyReservationsComponent},
+      {path: 'new-reservation',component: NewReservationComponent, canActivate: [AuthGuard]},
+      {path: 'my-reservations',component: MyReservationsComponent, canActivate: [AuthGuard]},
     ]
   },
   {

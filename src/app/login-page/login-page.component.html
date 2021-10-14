@@ -1,6 +1,14 @@
 <form class="card" [formGroup]="form" (ngSubmit)="submit()" >
   <h2>Авторизоваться в сервисе бронирования</h2>
 
+  <div class="alert-danger" *ngIf="auth.error$ | async as error">
+    {{error}}
+  </div>
+
+  <div class="alert-info" *ngIf=" message">
+    {{message}}
+  </div>
+
     <div class="container">
 
         <mat-form-field appearance="fill">
