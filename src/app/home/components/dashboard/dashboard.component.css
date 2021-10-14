@@ -9,14 +9,16 @@
 }
 
 a {
-  font-family: 'Courier', sans-serif;
-  font-size: 15px;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
   text-decoration: none;
 }
 
 .active a {
   color: rgb(4, 66, 9);
-  font-family: 'Arial', sans-serif;
-  font-size: 18px;
+  font-family: 'Courier', cursive;
+  font-style:italic;
+  font-weight:bold;
+  font-size: 22px;
   transition: color .3s ease-out;
 }
