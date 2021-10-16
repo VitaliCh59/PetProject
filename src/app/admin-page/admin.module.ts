@@ -5,18 +5,18 @@ import {AdminPageComponent} from "./admin-page.component";
 // import { LoginPageComponent } from '../login-page/login-page.component';
 import { ManageReservationComponent } from './manage-reservation/manage-reservation.component';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
 @NgModule({
-  declarations: [/*LoginPageComponent,*/ ManageReservationComponent, ReservationListComponent],
+  declarations: [ManageReservationComponent, ReservationListComponent, HeaderComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: 'admin', component: AdminPageComponent, children: [
-          {path: 'admin', redirectTo: '/login', pathMatch: 'full'},
-          // {path: 'login', component: LoginPageComponent},
+          {path: '', redirectTo: '/manage-reservation', pathMatch: 'full'},
           {path: 'manage-reservation', component: ManageReservationComponent},
           {path: 'reservation-list', component: ReservationListComponent}
 
@@ -24,6 +24,8 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
       }
     ])
   ],
-  exports: []
+  exports: [
+    HeaderComponent
+  ]
 })
 export class AdminModule { }
