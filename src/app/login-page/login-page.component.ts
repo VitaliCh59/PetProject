@@ -65,8 +65,12 @@ export class LoginPageComponent implements OnInit{
     }
 
     this.auth.login(user).subscribe( ()=> {
-      this.form.reset()
-      this.router.navigate(['/my-reservations'])
+      this.form.reset();
+      if (user.email === 'admin@mail.com') {
+        this.router.navigate(['/admin']);
+      } else {
+        this.router.navigate(['/my-reservations']);
+      }
       this.submitted = false;
     }, error => {
       this.submitted = false;
