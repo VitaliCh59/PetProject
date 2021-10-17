@@ -1,3 +1,57 @@
-<div class="news-page">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem doloremque eaque enim harum hic, illum, neque obcaecati possimus reiciendis saepe sequi sit tenetur? Eum, illum veritatis. Nam optio, saepe!
-</div>
+<form  [formGroup]="form" class="card" (ngSubmit)="submit()">
+<h2>Забронировать столик</h2>
+
+  <div class="container">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Выберете дату</mat-label>
+      <label>
+        <input matInput
+               type="date"
+               value="2018-07-22"
+               min="2021-01-01"
+               max="2021-12-31"
+               formControlName="calendar"
+               required>
+      </label>
+      <!--    <mat-error *ngIf="form.get('email').touched">{{getErrorEmail()}}</mat-error>-->
+    </mat-form-field>
+
+    <h4>Выберете время</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Время бронирования</mat-label>
+      <mat-select  formControlName="reservationTime">
+        <mat-option *ngFor="let val of reservationTime" [value]="val.time">
+          {{val.time}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h4>Выберете столик</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Номер стола</mat-label>
+      <mat-select  formControlName="reservationTable">
+        <mat-option *ngFor="let val of reservTable" [value]="val.id">
+          {{val.table}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <h4>Выберете количество гостей</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Количество гостей</mat-label>
+      <mat-select  formControlName="guests">
+        <mat-option *ngFor="let val of personValue" [value]="val.id">
+          {{val.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+
+  <button type="submit"
+          class="btn btn__reservation"
+          [disabled]="form.invalid"> Забронировать
+  </button>
+
+</form>

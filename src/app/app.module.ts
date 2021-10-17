@@ -19,6 +19,8 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { HttpClientModule } from '@angular/common/http';
 import {AdminModule} from "./admin-page/admin.module";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import {AdminModule} from "./admin-page/admin.module";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
