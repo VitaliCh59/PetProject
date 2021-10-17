@@ -16,7 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
     RouterModule.forChild([
       {
         path: 'admin', component: AdminPageComponent, children: [
-          {path: '', redirectTo: '/manage-reservation', pathMatch: 'full'},
+          {path: '', redirectTo: '/admin/manage-reservation', pathMatch: 'full'},
           {path: 'manage-reservation', component: ManageReservationComponent},
           {path: 'reservation-list', component: ReservationListComponent}
 

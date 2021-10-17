@@ -1,1 +1,17 @@
-<p>reservation-list works!</p>
+<div class="list">
+
+  <select>
+    <option *ngFor="let v of reservationTime" [value]="v">
+      {{v.name}}
+    </option>
+  </select>
+
+  <ul class="list__table">
+    <li class="list__table-list">бронировани 1</li>
+    <li class="list__table-list">бронировани 2</li>
+    <li class="list__table-list">бронировани 3</li>
+    <li class="list__table-list">бронировани 4</li>
+
+  </ul>
+
+</div>
