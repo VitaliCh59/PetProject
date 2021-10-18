@@ -114,3 +114,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-right: auto;
   max-width:320px;
 }
+
+.reservation-table {
+  margin: 10px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+
+table {
+  border-spacing: 15px;
+  border: 1px solid grey;
+}
+
+th {
+  border: 1px solid grey;
+}
+
+td {
+  border: 1px solid grey;
+}

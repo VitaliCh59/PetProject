@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
@@ -17,10 +17,18 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AdminModule} from "./admin-page/admin.module";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {AuthInterceptor} from "./shared/auth.interceptor";
+import {SearchPipe} from "./admin-page/admin-shared/search.pipe";
+
+const  INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor
+}
 
 @NgModule({
   declarations: [
@@ -32,8 +40,8 @@ import {MatSelectModule} from "@angular/material/select";
     NewsPageComponent,
     HeaderComponent,
     DashboardComponent,
-    LoginPageComponent
-  ],
+    LoginPageComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -47,11 +55,12 @@ import {MatSelectModule} from "@angular/material/select";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AdminModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    AdminModule
   ],
-  providers: [],
+  providers: [INTERCEPTOR_PROVIDER],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

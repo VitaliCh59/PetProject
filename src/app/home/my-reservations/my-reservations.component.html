@@ -1,1 +1,21 @@
-<p>my-reservation works!</p>
+<table class="reservation-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Дата</th>
+      <th>Время</th>
+      <th>Стол</th>
+      <th>Кол-во гостей</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let reservation of reservations; let idx = index">
+      <td>{{idx + 1}}</td>
+      <td>{{reservation.calendar}}</td>
+      <td>{{reservation.reservationTime}}</td>
+      <td>{{reservation.reservationTable}}</td>
+      <td>{{reservation.guests}}</td>
+    </tr>
+  </tbody>
+</table>

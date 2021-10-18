@@ -1,17 +1,58 @@
-<div class="list">
+<div class="list" *ngIf="reservations.length; else loading">
 
-  <select>
-    <option *ngFor="let v of reservationTime" [value]="v">
-      {{v.name}}
-    </option>
-  </select>
+  <label>
+    <select>
+      <option *ngFor="let v of reservationTime" [value]="v">
+        {{v.name}}
+      </option>
+    </select>
+  </label>
 
-  <ul class="list__table">
-    <li class="list__table-list">бронировани 1</li>
-    <li class="list__table-list">бронировани 2</li>
-    <li class="list__table-list">бронировани 3</li>
-    <li class="list__table-list">бронировани 4</li>
+  <div class="form-control">
+    <label>
+      <input
+        type="text"
+        placeholder="Найти бронирование"
+        [(ngModel)]="searchStr"
+      >
+    </label>
+  </div>
 
-  </ul>
+  <table class="reservation-table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Дата</th>
+      <th>Время</th>
+      <th>Стол</th>
+      <th>Кол-во гостей</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let reservation of reservations | searchReservation: searchStr; let idx = index">
+      <td>{{idx + 1}}</td>
+      <td>{{reservation.calendar}}</td>
+      <td>{{reservation.reservationTime}}</td>
+      <td>{{reservation.reservationTable}}</td>
+      <td>{{reservation.guests}}</td>
+      <td>
+
+        <button
+          class="btn"
+          [routerLink]="['/admin', 'manage-reservation', reservation.id]"
+        >
+          Редакт.
+        </button>
+
+        <a class="delete-link" (click)="remove(reservation.id)">Удалить</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
 </div>
+
+<ng-template #loading>
+  <p class="loader">Идет загрузка...</p>
+</ng-template>

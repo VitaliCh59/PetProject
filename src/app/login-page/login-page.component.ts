@@ -27,6 +27,8 @@ export class LoginPageComponent implements OnInit{
     this.route.queryParams.subscribe( (params: Params) => {
       if (params['loginAgain']) {
         this.message = 'Пожалуйста, авторизуйтесь для нового бронирования или просмотра существующих бронирований'
+      } else if (params['authFailed']) {
+        this.message = 'Сессия завершена. Войдите в профиль заново'
       }
     })
 
@@ -67,7 +69,7 @@ export class LoginPageComponent implements OnInit{
     this.auth.login(user).subscribe( ()=> {
       this.form.reset();
       if (user.email === 'admin@mail.com') {
-        this.router.navigate(['/admin/manage-reservation']);
+        this.router.navigate(['/admin/reservation-list']);
       } else {
         this.router.navigate(['/my-reservations']);
       }
