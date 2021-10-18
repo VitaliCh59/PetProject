@@ -9,3 +9,12 @@
 .list__table-list {
   margin: 10px;
 }
+.btn {
+  font-size: 15px;
+  font-stretch: condensed;
+  letter-spacing: 1px
+}
+
+.delete-link {
+  cursor: pointer;
+}

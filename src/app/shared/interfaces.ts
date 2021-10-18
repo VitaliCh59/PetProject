@@ -1,7 +1,7 @@
 export interface User {
   email: string;
   password: string;
-  returnSecureToken: boolean;
+  returnSecureToken?: boolean;
 }
 
 export interface FbAuthResponse {
@@ -11,6 +11,7 @@ export interface FbAuthResponse {
 }
 
 export  interface Reservation {
+  id?: string;
   calendar: string;
   reservationTime: string;
   reservationTable: number;

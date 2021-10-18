@@ -19,4 +19,20 @@ export class ReservationsService {
      }
     }))
   }
+
+  getReservations(): Observable<Reservation[]> {
+    return this.http.get(`${environment.dataUrl}/reservations.json`)
+      .pipe(map( (response:{[key: string]: any}) => {
+        return Object
+          .keys(response)
+          .map( key => ({
+            ...response[key],
+            id: key
+          }))
+      }))
+  }
+
+  remove(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.dataUrl}/reservations/${id}.json`)
+  }
 }
